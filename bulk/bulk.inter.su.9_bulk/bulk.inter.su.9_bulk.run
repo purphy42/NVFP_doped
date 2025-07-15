@@ -1,0 +1,107 @@
+#!/bin/bash   
+#SBATCH -J bulk.inter.su.9_bulk
+#SBATCH -N 1
+#SBATCH -n 16
+#SBATCH -o ssh: connect to host 10.30.98.103 port 22: Connection timed out//nvpf_al_doped//bulk//bulk.inter.su.9_bulk/sbatch.out
+#SBATCH -e ssh: connect to host 10.30.98.103 port 22: Connection timed out//nvpf_al_doped//bulk//bulk.inter.su.9_bulk/sbatch.err
+cd ssh: connect to host 10.30.98.103 port 22: Connection timed out//nvpf_al_doped//bulk//bulk.inter.su.9_bulk/
+source /etc/profile.d/modules.sh; module load devtools/mpi/mpich/4.2.1/gcc/11.2; module load devtools/math/mkl/2024.1.0.695; module load q-ch/vasp/5.4.4_mpich_mkl; 
+ ulimit -s unlimited
+
+export PATH=$PATH:ssh: connect to host 10.30.98.103 port 22: Connection timed out/tools/
+touch RUNNING
+#Basic run:
+cp 1.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.1.log
+sleep 20
+mv OUTCAR 1.OUTCAR
+mv CONTCAR 1.CONTCAR
+mv CHGCAR 1.CHGCAR
+mv vasprun.xml 1.vasprun.xml
+#Basic run:
+cp 2.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.2.log
+sleep 20
+mv OUTCAR 2.OUTCAR
+mv CONTCAR 2.CONTCAR
+mv CHGCAR 2.CHGCAR
+mv vasprun.xml 2.vasprun.xml
+#Basic run:
+cp 3.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.3.log
+sleep 20
+mv OUTCAR 3.OUTCAR
+mv CONTCAR 3.CONTCAR
+mv CHGCAR 3.CHGCAR
+mv vasprun.xml 3.vasprun.xml
+#Basic run:
+cp 4.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.4.log
+sleep 20
+mv OUTCAR 4.OUTCAR
+mv CONTCAR 4.CONTCAR
+mv CHGCAR 4.CHGCAR
+mv vasprun.xml 4.vasprun.xml
+#Basic run:
+cp 5.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.5.log
+sleep 20
+mv OUTCAR 5.OUTCAR
+mv CONTCAR 5.CONTCAR
+mv CHGCAR 5.CHGCAR
+mv vasprun.xml 5.vasprun.xml
+#Basic run:
+cp 6.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.6.log
+sleep 20
+mv OUTCAR 6.OUTCAR
+mv CONTCAR 6.CONTCAR
+mv CHGCAR 6.CHGCAR
+mv vasprun.xml 6.vasprun.xml
+#Basic run:
+cp 7.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.7.log
+sleep 20
+mv OUTCAR 7.OUTCAR
+mv CONTCAR 7.CONTCAR
+mv CHGCAR 7.CHGCAR
+mv vasprun.xml 7.vasprun.xml
+#Basic run:
+cp 8.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.8.log
+sleep 20
+mv OUTCAR 8.OUTCAR
+mv CONTCAR 8.CONTCAR
+mv CHGCAR 8.CHGCAR
+mv vasprun.xml 8.vasprun.xml
+#Basic run:
+cp 9.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.9.log
+sleep 20
+mv OUTCAR 9.OUTCAR
+mv CONTCAR 9.CONTCAR
+mv CHGCAR 9.CHGCAR
+mv vasprun.xml 9.vasprun.xml
+#Basic run:
+cp 10.POSCAR POSCAR
+srun vasp_gam >bulk.inter.su.9_bulk.10.log
+sleep 20
+mv OUTCAR 10.OUTCAR
+mv CONTCAR 10.CONTCAR
+mv CHGCAR 10.CHGCAR
+mv vasprun.xml 10.vasprun.xml
+
+#Footer section: 
+
+
+#Starting fitting tool 
+python ssh: connect to host 10.30.98.103 port 22: Connection timed out/tools/fit_tool.py 1.OUTCAR 2.OUTCAR 3.OUTCAR 4.OUTCAR 5.OUTCAR 6.OUTCAR 7.OUTCAR 8.OUTCAR 9.OUTCAR 10.OUTCAR
+cp 100.POSCAR POSCAR 
+srun vasp_gam >bulk.inter.su.9_bulk.100.fitted.log
+sleep 20
+mv OUTCAR 100.OUTCAR
+mv CONTCAR 100.CONTCAR
+mv CHGCAR 100.CHGCAR
+mv vasprun.xml 100.vasprun.xml
+rm WAVECAR PARCHG XDATCAR AECCAR0 ELFCAR WAVEDER AECCAR2 DOSCAR PROCAR LOCPOT EIGENVAL OSZICAR CHG 
+rm RUNNING
