@@ -195,8 +195,8 @@ user_vasp_sets = [
 
 ('9_bulk_md_eq', '9_bulk', {'IBRION':0, 'ISIF': 2, 'SIGMA': 0.026, 'POTIM': 2, 'PREC': 'Single', 
     'NSW': 2000, 'TEBEG': 600, 'TEEND': 600, 'SMASS':0, 'MDALGO': 2, 'LWAVE': '.FALSE.', 
-    'LCHARG': ".FALSE.", 'ALGO': 'Fast', 'NELMDL': None, 'NELMIN': None,
-    'ENCUT': 400, 'ENAUG': 600, "KSPACING": 0.5, "ADDGRID": ".TRUE.",
+    'LCHARG': ".FALSE.", 'ALGO': 'Very Fast', 'NELMDL': None, 'NELMIN': None,
+    'ENCUT': 300, 'ENAUG': 500, "KSPACING": 1.0, "ADDGRID": ".TRUE.", "EDIFF": 1e-4,
      "PSTRESS": 0, "IWAVPR": 12, "MAXMIX": 40, "NBLOCK": 50, 'savefile' : 'acoxt'}, "over"),
 
 
