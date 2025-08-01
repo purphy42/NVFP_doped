@@ -58,6 +58,12 @@ dftu_packet_h3 = {'ISTART'   :1,   'ICHARG':1,  'LDAUTYPE':2, 'LASPH':'.TRUE.',
                 'LDAUU':{'Ti':0,   'Co':5,   'Fe':4.0, 'Ni':6.2, 'Mn':5,   'V':3.1 , 'Cr':3.5, 'Fe/S':1.9, 'W':4 , 'Ru': 4  , 'Mo': 3, 'Zn':5},
                 'LDAUJ':{'Ti':0.0, 'Co':0.0, 'Fe':0.0, 'Ni':0.0, 'Mn':0.0, 'V':0.0 , 'Cr':0.0, 'Fe/S':0,   'W':1 , 'Ru': 0.0, 'Mo': 0, 'Zn':0} }
 
+dftu_packet_rsf = {'ISTART'   :1,   'ICHARG':1,  'LDAUTYPE':2, 'LASPH':'.TRUE.',
+                'LDAUPRINT':2, 'LMAXMIX' :4, 'LDAU' :'.TRUE.',
+                'LDAUL':{'Ti':2,   'Co':2  , 'Fe':2  , 'Ni':2  , 'Mn':2  , 'V':2   , 'Cr':2,               'W':2 , 'Ru': 2  , 'Mo': 2, 'Zn':2},
+                'LDAUU':{'Ti':0,   'Co':3.32,   'Fe':4.0, 'Ni':6.2, 'Mn':3.9,   'V':3.25 , 'Cr':3.7, 'Fe':5.3, 'W':6.2, 'Ru': 4  , 'Mo': 4.38, 'Zn':5},
+                'LDAUJ':{'Ti':0.0, 'Co':0.0, 'Fe':0.0, 'Ni':0.0, 'Mn':0.0, 'V':0.0 , 'Cr':0.0, 'Fe':0,   'W':1 , 'Ru': 0.0, 'Mo': 0, 'Zn':0} }
+
 
 dftu_packet_off = {'LDAU' :None, 'LASPH':None, 'LDAUPRINT':None, 'LDAUTYPE':None,  'LDAUL':None, 'LDAUU':None, 'LDAUJ':None, }
 
@@ -182,9 +188,11 @@ user_vasp_sets = [
 
 
 #For LVP
+('9_bulk_mp', 'bulk', {'NSW':99, 'EDIFFG': -0.05, 'EDIFF': 1e-5, 'ISIF':2, 'ENCUT':520, 'ENAUG': 780, 'add_nbands': 1.2, "GGA_COMPAT": ".FALSE.", 'KSPACING': 0.3, 'ISMEAR': 0, 'SIGMA': 0.2, 'NELM': 100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, "LORBIT": 11, "LAECHG": ".TRUE.", 'POTIM': 0.1, 'LASPH': '.TRUE.',  'MAXMIX': None, 'GGA_COMPAT': None, 'PREC': 'Accurate', 'LPLANE': None, 'ALGO': 'Normal',  "NELMIN": None, "LWAVE": ".FALSE.", "IWAVPR": None, "IBRION": 1, "LMIXTAU": ".TRUE.", **dftu_packet_off, 'savefile' : 'acoxt'}, 'over'),
 
-('9_bulk', '9', {'NSW':50,'EDIFFG':-0.05, 'EDIFF':1e-5, 'ISIF':2, 'ENCUT':400, 'ENAUG': 600, 'add_nbands':1.2, 
-    'KSPACING': 0.3, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2, 'LDAUL':{'V': 2, 'Li': 0, 'P': 0, 'O': 0, 'F': 0}, 'LDAUU':{'V': 3.1}, 'ISMEAR': 0, 'SIGMA':0.1,'NELM':100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, 'LMAXMIX': 4, 'POTIM': 0.25, 'LASPH': '.TRUE.', 'LORBIT': 11,  'MAXMIX': 40, 'GGA_COMPAT': ".FALSE.", 'PREC': 'Accurate', 'LPLANE': ".TRUE", 'LSCALU': '.FALSE.', 'ALGO': 'Normal',  "NELMIN": 4, 'LDAUJ': {'V': 0.0}, "LWAVE": ".FALSE." }, 'over'),
+
+('9_bulk', '9', {'NSW':50,'EDIFFG':-0.05, 'EDIFF':1e-5, 'ISIF':2, 'ENCUT':520, 'ENAUG': 780, 'add_nbands':1.2, 
+    'KSPACING': 0.3, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2, 'LDAUL':{'V': 2, 'Li': 0, 'P': 0, 'O': 0, 'F': 0}, 'LDAUU':{'V': 3.1}, 'ISMEAR': 0, 'SIGMA':0.1,'NELM':100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, 'LMAXMIX': 4, 'POTIM': 0.15, 'LASPH': '.TRUE.', 'LORBIT': 11, 'GGA_COMPAT': ".FALSE.", 'PREC': 'Accurate', 'LPLANE': ".TRUE.", 'LSCALU': '.FALSE.', 'ALGO': 'Normal',  "NELMIN": 10, "NELMDL": -10, 'LDAUJ': {'V': 0.0}, "LWAVE": ".FALSE.", "IWAVPR": 11 }, 'over'),
 
 ('9_bulk_eos', '9_bulk', {"ISIF": 4, "NELM": 100, "NSW": 35 }, 'over'),
 

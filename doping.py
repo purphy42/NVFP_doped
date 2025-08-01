@@ -20,7 +20,10 @@ import os, re
 # close: 3.57 AA
 # dist: 5.68 AA
 
-if 1:
+# ion relaxation 0.3, DOS 0.2.  AIMD: 0.5
+
+
+if 0:
     # BULK STRUCTURES
     st_int = smart_structure_read("structures/POSCAR_NaVPO4F_su_s10_1u_100_end")
 
@@ -76,13 +79,13 @@ if 1:
     
 
 if 0:
-    # res_loop('bulk.inter.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128')
+    res_loop('bulk.inter.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
 
-    # res_loop('bulk.deinter.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128')
+    res_loop('bulk.deinter.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
 
-    # res_loop('bulk.al.close.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128')
+    res_loop('bulk.al.close.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
 
-    # res_loop('bulk.al.dist.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128')
+    res_loop('bulk.al.dist.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
 
     # res_loop('bulk.al.some_na.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128')
 
@@ -90,36 +93,53 @@ if 0:
 
     # res_loop('bulk.al.some_na_dead.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128')
 
+
+
+if 0:
+    st_bulk_inter = db['bulk.inter.su', '9_bulk_eos', 100].copy().end
+    # st_bulk_deinter = db['bulk.deinter.su', '9_bulk_eos', 100].copy().end
+    st_bulk_al_close = db['bulk.al.close.su', '9_bulk_eos', 100].copy().end
+    st_bulk_al_dist = db['bulk.al.dist.su', '9_bulk_eos', 100].copy().end
+    
+
+    # st_bulk_deinter.jmol()
+    
+    # st_bulk_al_some_na = db['bulk.al.some_na.su', '9_bulk_eos', 100].copy().end
+    # st_bulk_soma_na = db['bulk.some_na.su', '9_bulk_eos', 100].copy().end
+    # st_bulk_some_na_dead = db['bulk.al.some_na_dead.su', '9_bulk_eos', 100].copy().end
+  
+    add('bulk.inter', '9_bulk', 1, input_st = st_bulk_inter, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.deinter', '9_bulk', 1, input_st = st_bulk_deinter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
+    add('bulk.al.close', '9_bulk', 1, input_st = st_bulk_al_close, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    add('bulk.al.dist', '9_bulk', 1, input_st = st_bulk_al_dist, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    
+
+
+
+if 0:
+    # MD calculations
     st_bulk_inter = db['bulk.inter.su', '9_bulk_eos', 100].copy().end
     st_bulk_deinter = db['bulk.deinter.su', '9_bulk_eos', 100].copy().end
     st_bulk_al_close = db['bulk.al.close.su', '9_bulk_eos', 100].copy().end
     st_bulk_al_dist = db['bulk.al.dist.su', '9_bulk_eos', 100].copy().end
-    st_bulk_al_some_na = db['bulk.al.some_na.su', '9_bulk_eos', 100].copy().end
-    st_bulk_soma_na = db['bulk.some_na.su', '9_bulk_eos', 100].copy().end
-    st_bulk_some_na_dead = db['bulk.al.some_na_dead.su', '9_bulk_eos', 100].copy().end
-    
-    add('bulk.inter', '9_bulk_md_eq', 1, input_st = st_bulk_inter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.deinter', '9_bulk_md_eq', 1, input_st = st_bulk_deinter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.al.close', '9_bulk_md_eq', 1, input_st = st_bulk_al_close, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.al.dist', '9_bulk_md_eq', 1, input_st = st_bulk_al_dist, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.al.some_na', '9_bulk_md_eq', 1, input_st = st_bulk_al_some_na, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.some_na', '9_bulk_md_eq', 1, input_st = st_bulk_soma_na, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.al.some_na_dead', '9_bulk_md_eq', 1, input_st = st_bulk_some_na_dead, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
     
     
-# db['bulk.al.close.su', '9_bulk_eos', 100].copy().end.printme()
+    # add('bulk.inter', '9_bulk_md_eq', 1, input_st = st_bulk_inter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128', up="up2") 
+    # add('bulk.deinter', '9_bulk_md_eq', 1, input_st = st_bulk_deinter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128', up="up2") 
+    # add('bulk.al.close', '9_bulk_md_eq', 1, input_st = st_bulk_al_close, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128', up="up2") 
+    # add('bulk.al.dist', '9_bulk_md_eq', 1, input_st = st_bulk_al_dist, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128', up="up2") 
     
-# db['bulk.al.close.su', '9_bulk_eos', 100].copy().end.jmol()
-
+    # st_bulk_al_some_na = db['bulk.al.some_na.su', '9_bulk_eos', 100].copy().end
+    # st_bulk_soma_na = db['bulk.some_na.su', '9_bulk_eos', 100].copy().end
+    # st_bulk_some_na_dead = db['bulk.al.some_na_dead.su', '9_bulk_eos', 100].copy().end
     
-# db['bulk.al.close.su', '9_bulk_eos', 100].copy().res()
-# db['bulk.al.dist.su', '9_bulk_eos', 100].copy().res()
-
-# db['bulk.deinter.su', '9_bulk_eos', 100].copy().end.jmol()
+    # add('bulk.al.some_na', '9_bulk_md_eq', 1, input_st = st_bulk_al_some_na, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.some_na', '9_bulk_md_eq', 1, input_st = st_bulk_soma_na, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al.some_na_dead', '9_bulk_md_eq', 1, input_st = st_bulk_some_na_dead, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
+    
 
 
 if 0:
-    
     db['bulk.inter.su', '9_bulk_eos', 100].copy().res()
     db['bulk.deinter.su', '9_bulk_eos', 100].copy().res()
     db['bulk.al.close.su', '9_bulk_eos', 100].copy().res()
@@ -128,4 +148,34 @@ if 0:
     db['bulk.some_na.su', '9_bulk_eos', 100].copy().res()
     db['bulk.al.some_na_dead.su', '9_bulk_eos', 100].copy().res()
  
+
+
+if 1:
+    # Al substitution in Li site
+    st_int = smart_structure_read("structures/POSCAR_NaVPO4F_su_s10_1u_100_end")
+    st_al_li = st_int.copy()
+    st_al_li = st_al_li.replace_atoms([2], "Al")
+    st_al_li = st_al_li.remove_atoms([4, 6])
+    
+    st_al_li_2 = st_al_li.copy()
+    coords = st_al_li_2.xcart
+    coord1 = np.array(coords[65])
+    coord2 = np.array(coords[67])
+    coords[125] = (coord1 + coord2) / 2
+    st_al_li_2.xcart = coords
+    st_al_li_2.update_xred()
+    
+    st_al_li_3 = st_al_li.copy()
+    coords = st_al_li_3.xcart
+    coord1 = np.array(coords[14])
+    coord2 = np.array(coords[33])
+    coords[125] = (coord1 + coord2) / 2
+    st_al_li_3.xcart = coords
+    st_al_li_3.update_xred()
+    
+    add('bulk.al_li.1', '9_bulk', 1, input_st = st_al_li, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    
+    add('bulk.al_li.2', '9_bulk', 1, input_st = st_al_li_2, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    
+    add('bulk.al_li.3', '9_bulk', 1, input_st = st_al_li_3, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
     

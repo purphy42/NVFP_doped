@@ -168,7 +168,7 @@ ulimit -s unlimited\n\
 
 CLUSTERS['razor128'] = {
 'address':'razor128',
-'vasp_com':'srun vasp_gam',
+'vasp_com':'srun vasp_std',
 'homepath':'/home/a.burov/nvpf_al_doped/',
 'schedule':'SLURM',
 'corenum':16,
