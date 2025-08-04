@@ -199,7 +199,7 @@ user_vasp_sets = [
 
 ('9_bulk_met', '9_bulk', {'ISMEAR': 2, 'KSPACING': 0.3, 'add_nbands':3.0, "SIGMA": 0.01}, "over"),
 
-('9_bulk_rel', '9_bulk', {'NSW':200, 'POTIM': 0.15, 'EDIFF': 1e-6}, "over"),  
+('9_bulk_rel', '9_bulk', {'NSW':150, 'POTIM': 0.15, 'EDIFF': 1e-6}, "over"),  
 
 ('9_bulk_md_eq', '9_bulk', {'IBRION':0, 'ISIF': 2, 'SIGMA': 0.026, 'POTIM': 2, 'PREC': 'Single', 
     'NSW': 2000, 'TEBEG': 600, 'TEEND': 600, 'SMASS':0, 'MDALGO': 2, 'LWAVE': '.FALSE.', 
@@ -212,7 +212,7 @@ user_vasp_sets = [
 
 # ANALYSIS OF CHARGES
 ('9bulk_dos', '9_bulk_rel', {'LORBIT':12, 'ISMEAR':-5, 'SIGMA':None, 'LAECHG':'.TRUE.', 'EMIN':-20, 
-    'EMAX':20, 'NEDOS':2000, 'KSPACING':0.15, 'savefile':'dox', 'LCHARG': 'TRUE', 'NSW':0, 'IBRION': -1,
+    'EMAX':20, 'NEDOS':2000, 'KSPACING':0.2, 'savefile':'dox', 'LCHARG': 'TRUE', 'NSW':0, 'IBRION': -1,
     "NPAR": 2, "NFREE": 20, "POTIM": 0.04, 'PREC':'Accurate', 'ADDGRID':'.TRUE.', 'EDIFF':1e-6, 'NELM':300, 
      "NELMIN": 8, "NELMDL": -8 }, "over"),
 
