@@ -97,7 +97,7 @@ if 0:
 
 
 
-if 1:
+if 0:
     st_bulk_inter = db['bulk.inter.su', '9_bulk_eos', 100].copy().end
     st_bulk_deinter = db['bulk.deinter.su', '9_bulk_eos', 100].copy().end
     st_bulk_al_close = db['bulk.al.close.su', '9_bulk_eos', 100].copy().end
@@ -112,12 +112,9 @@ if 1:
     st_bulk_some_na_dead = db['bulk.al.some_na_dead.su', '9_bulk_eos', 100].copy().end
     st_bulk_al_some_na = db['bulk.al.some_na.su', '9_bulk_eos', 100].copy().end
 
-    # st_bulk_soma_na.printme()
-    # st_bulk_some_na_dead.printme()
-    
-    add('bulk.al.some_na_dead', '9_bulk', 1, input_st = st_bulk_some_na_dead, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.some_na', '9_bulk', 1, input_st = st_bulk_soma_na, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
-    add('bulk.al.some_na', '9_bulk', 1, input_st = st_bulk_al_some_na, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al.some_na_dead', '9_bulk', 1, input_st = st_bulk_some_na_dead, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.some_na', '9_bulk', 1, input_st = st_bulk_soma_na, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al.some_na', '9_bulk', 1, input_st = st_bulk_al_some_na, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
     
 
 
@@ -132,27 +129,30 @@ if 0:
  
 
 
-# DOS calculations
+# Pre-relaxtion
 
-# db['bulk.al.some_na', '9_bulk', 1].init.printme()
-# db['bulk.al.some_na_dead', '9_bulk', 1].init.printme()
-
-
-if 0:
+if 1:
     pass
-    res('bulk.inter', '9_bulk', 1, cluster = 'razor128')
-    res('bulk.al.close', '9_bulk', 1, cluster = 'razor128') 
-    res('bulk.al.dist', '9_bulk', 1, cluster = 'razor128') 
-    res('bulk.deinter', '9_bulk', 1, cluster = 'razor128')
+    # res('bulk.inter', '9_bulk', 1, up="up2", cluster = 'razor128')
+    # res('bulk.al.close', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # res('bulk.al.dist', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # res('bulk.deinter', '9_bulk', 1, up="up2", cluster = 'razor128')
     
     # res('bulk.some_na', '9_bulk', 1, up="up2", cluster = 'razor128') 
     # res('bulk.al.some_na', '9_bulk', 1, up="up2", cluster = 'razor128') 
     # res('bulk.al.some_na_dead', '9_bulk', 1, up="up2", cluster = 'razor128') 
-     
+    
+    # db['bulk.deinter', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
     # db['bulk.inter', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
     # db['bulk.al.close', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
     # db['bulk.al.dist', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
-    # db['bulk.al.some_na', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+
+    # db['bulk.inter.ifc', '9_bulk_rel', 1].res(cluster="razor128")     
+    # db['bulk.deinter.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # db['bulk.al.close.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # db['bulk.al.dist.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+     
+    db['bulk.inter.ifc', '9_bulk_rel', 1].run("9_bulk_rel_fast", "full_chg", run=2, cluster="razor128")
      
     # add('bulk.deinter', '9_bulk', 1, input_st = st_bulk_deinter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
     # add('bulk.al.close', '9_bulk', 1, input_st = st_bulk_al_close, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
