@@ -45,7 +45,9 @@ if 0:
     add('bulk.al_li.3', '9_bulk', 1, input_st = st_al_li_3, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
     
     
-if 0:
+if 1:
+    pass
+
     # res('bulk.al_li.1', '9_bulk', 1, cluster = 'razor128') 
     # res('bulk.al_li.2', '9_bulk', 1, cluster = 'razor128') 
     # res('bulk.al_li.3', '9_bulk', 1, cluster = 'razor128') 
@@ -54,7 +56,20 @@ if 0:
     # db['bulk.al_li.2', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster = 'razor128') 
     # db['bulk.al_li.3', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster = 'razor128') 
 
-    db['bulk.al_li.1.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
-    db['bulk.al_li.2.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
-    db['bulk.al_li.3.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.1.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.2.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.3.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+
+    # db['bulk.al_li.1.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
+    # db['bulk.al_li.2.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
+    # db['bulk.al_li.3.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
+
+    # db['bulk.al_li.1.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.2.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.3.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+
+    # db['bulk.al_li.1.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128')
+    # db['bulk.al_li.2.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128')  
+    # db['bulk.al_li.3.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
+
 

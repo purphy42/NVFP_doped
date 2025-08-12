@@ -58,11 +58,7 @@ dftu_packet_h3 = {'ISTART'   :1,   'ICHARG':1,  'LDAUTYPE':2, 'LASPH':'.TRUE.',
                 'LDAUU':{'Ti':0,   'Co':5,   'Fe':4.0, 'Ni':6.2, 'Mn':5,   'V':3.1 , 'Cr':3.5, 'Fe/S':1.9, 'W':4 , 'Ru': 4  , 'Mo': 3, 'Zn':5},
                 'LDAUJ':{'Ti':0.0, 'Co':0.0, 'Fe':0.0, 'Ni':0.0, 'Mn':0.0, 'V':0.0 , 'Cr':0.0, 'Fe/S':0,   'W':1 , 'Ru': 0.0, 'Mo': 0, 'Zn':0} }
 
-dftu_packet_rsf = {'ISTART'   :1,   'ICHARG':1,  'LDAUTYPE':2, 'LASPH':'.TRUE.',
-                'LDAUPRINT':2, 'LMAXMIX' :4, 'LDAU' :'.TRUE.',
-                'LDAUL':{'Ti':2,   'Co':2  , 'Fe':2  , 'Ni':2  , 'Mn':2  , 'V':2   , 'Cr':2,               'W':2 , 'Ru': 2  , 'Mo': 2, 'Zn':2},
-                'LDAUU':{'Ti':0,   'Co':3.32,   'Fe':4.0, 'Ni':6.2, 'Mn':3.9,   'V':3.25 , 'Cr':3.7, 'Fe':5.3, 'W':6.2, 'Ru': 4  , 'Mo': 4.38, 'Zn':5},
-                'LDAUJ':{'Ti':0.0, 'Co':0.0, 'Fe':0.0, 'Ni':0.0, 'Mn':0.0, 'V':0.0 , 'Cr':0.0, 'Fe':0,   'W':1 , 'Ru': 0.0, 'Mo': 0, 'Zn':0} }
+dftu_packet_rsf = {'ISTART'   :1,   'ICHARG':1,  'LDAUTYPE':2, 'LASPH':'.TRUE.', 'LDAUPRINT':2, 'LMAXMIX' :4, 'LDAU' :'.TRUE.', 'LDAUL':{'Ti':2,   'Co':2  , 'Fe':2  , 'Ni':2  , 'Mn':2  , 'V':2   , 'Cr':2,               'W':2 , 'Ru': 2  , 'Mo': 2, 'Zn':2}, 'LDAUU':{'Ti':0,   'Co':3.32,   'Fe':4.0, 'Ni':6.2, 'Mn':3.9,   'V':3.25 , 'Cr':3.7, 'Fe':5.3, 'W':6.2, 'Ru': 4  , 'Mo': 4.38, 'Zn':5}, 'LDAUJ':{'Ti':0.0, 'Co':0.0, 'Fe':0.0, 'Ni':0.0, 'Mn':0.0, 'V':0.0 , 'Cr':0.0, 'Fe':0,   'W':1 , 'Ru': 0.0, 'Mo': 0, 'Zn':0} }
 
 
 dftu_packet_off = {'LDAU' :None, 'LASPH':None, 'LDAUPRINT':None, 'LDAUTYPE':None,  'LDAUL':None, 'LDAUU':None, 'LDAUJ':None, }
@@ -127,6 +123,14 @@ mag_relax.update(ion_relax_packet)
 sv_pot_pack = {'set_potential':{3:"Li_sv2",    8:"O", 9:"F", 11:'Na_sv', 37:'Rb_sv', 15:"P", 16:'S', 19:'K_sv', 22:"Ti_sv_new", 23:"V_sv_new", 25:"Mn_sv",    26:"Fe_sv",     27:"Co_sv" , 28:"Ni_pv", 33:'As_d'  }} #except O_sv, which requires 1000 eV ecut at least
 sv_pot_pack_sn = {'set_potential':{3:"Li_sv2",    8:"O", 9:"F", 11:'Na_sv', 37:'Rb_sv', 15:"P", 16:'S', 19:'K_sv', 22:"Ti_sv_new", 23:"V_sv_new", 25:"Mn_sv",    26:"Fe_sv",     27:"Co_sv" , 28:"Ni_pv", 33:'As_d' , 50:"Sn_d" }} #except O_sv, which requires 1000 eV ecut at least
 pot_pack = {'set_potential':{1:'H', 3:"Li",  5:'B', 6:'C',  8:"O", 9:"F", 11:'Na', 12:'Mg', 15:"P", 16:'S', 19:'K_pv',     20:'Ca',         22:"Ti",        23:"V", 24:'Cr',   25:"Mn",       26:"Fe",        27:"Co_new", 28:"Ni_new", 33:'As', 37:'Rb_pv', 39:'Y_sv', 45:'Rh', 56:'Ba_sv',   83:'Bi_pv', 34:'Se',    }  }
+pot_pack_rsf = {'set_potential':{1: "H", 2: "He", 3:"Li_sv", 4: "Be_sv", 5: "B", 6: "C", 7: "N",  8:"O", 9:"F", 10: "Ne",  11:'Na_pv',
+    12: "Mg_pv", 13: "Al", 14: "Si", 15: "P", 16: "S", 17: "Cl", 18: "Ar", 19: "K_sv", 20: "Ca_sv", 21: "Sc_sv", 22: "Ti_d", 23:"V_pv",
+    24: "Cr_pv", 25: "Mn_pv", 26: "Fe_pv", 27: "Co", 28: "Ni_pv", 29: "Cu_pv", 30: "Zn", 31: "Ga_d", 32: "Ge_d", 33: 'As', 34: "Se",
+    35: "Br", 36: "Kr", 37: "Rb_sv", 38: "Sr_sv", 39: "Y_sv", 40: "Zr_sv", 41: "Nb_pv", 42: "Mo_pv", 43: "Tc_pv", 44: "Ru_pv", 45: "Rh_pv", 46: "Pd", 47: "Ag", 48: "Cd", 49: "In_d", 50: "Sn_d", 51: "Sb", 52: "Te", 53: "I", 54: "Xe", 55: "Cs_sv", 56: "Ba_sv", 57: "La",
+    58: "Ce", 59: "Pr_3", 60: "Nd_3", 61: "Pm_3", 62: "Sm_3", 63: "Eu", 64: "Gd", 65: "Tb_3", 66: "Dy_3", 67: "Ho_3", 68: "Er_3",
+    69: "Tm_3", 70: "Yb_3", 71: "Lu_3", 72: "Hf_pv", 73: "Ta_pv", 74: "W_pv", 75: "Re_pv", 76: "Os_pv", 77: "Ir",  78: "Pt", 79: "Au",
+    80: "Hg", 81: "Tl", 82: "Pb_d", 83: "Bi", 84: "Po", 85: "At_d", 86: "Rn", }} #except O_sv, which requires 1000 eV ecut at least
+
 over = ''
 
 YBC8mag2 = '0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 -5 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6'
@@ -188,18 +192,18 @@ user_vasp_sets = [
 
 
 #For LVP
-('9_bulk_mp', 'bulk', {'NSW':99, 'EDIFFG': -0.05, 'EDIFF': 1e-5, 'ISIF':2, 'ENCUT':520, 'ENAUG': 780, 'add_nbands': 1.2, "GGA_COMPAT": ".FALSE.", 'KSPACING': 0.3, 'ISMEAR': 0, 'SIGMA': 0.2, 'NELM': 100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, "LORBIT": 11, "LAECHG": ".TRUE.", 'POTIM': 0.1, 'LASPH': '.TRUE.',  'MAXMIX': None, 'GGA_COMPAT': None, 'PREC': 'Accurate', 'LPLANE': None, 'ALGO': 'Normal',  "NELMIN": None, "LWAVE": ".FALSE.", "IWAVPR": None, "IBRION": 1, "LMIXTAU": ".TRUE.", **dftu_packet_off, 'savefile' : 'acoxt'}, 'over'),
+('9_bulk_mp', 'bulk', {'NSW':99, 'EDIFFG': -0.05, 'EDIFF': 1e-5, 'ISIF':2, 'ENCUT':520, 'ENAUG': 780, 'add_nbands': 1.1, "GGA_COMPAT": ".FALSE.", 'KSPACING': 0.3, 'ISMEAR': 0, 'SIGMA': 0.2, 'NELM': 100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, "LORBIT": 11, "LAECHG": ".TRUE.", 'POTIM': 0.1, 'LASPH': '.TRUE.',  'MAXMIX': None, 'GGA_COMPAT': None, 'PREC': 'Accurate', 'LPLANE': None, 'ALGO': 'Normal',  "NELMIN": 4, "LWAVE": ".FALSE.", "IWAVPR": 11, "IBRION": 1, "LMIXTAU": ".TRUE.", 'savefile' : 'acoxt', 'LDAUL':{'V': 2, 'Li': 0, 'P': 0, 'O': 0, 'F': 0}, 'LDAUU':{'V': 3.25}, 'LDAUJ': {'V': 0.0}, **pot_pack_rsf },  'over'),
 
 
-('9_bulk', '9', {'NSW':50,'EDIFFG':-0.05, 'EDIFF':1e-5, 'ISIF':2, 'ENCUT':520, 'ENAUG': 780, 'add_nbands':1.2, 
-    'KSPACING': 0.3, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2, 'LDAUL':{'V': 2, 'Li': 0, 'P': 0, 'O': 0, 'F': 0}, 'LDAUU':{'V': 3.1}, 'ISMEAR': 0, 'SIGMA':0.1,'NELM':100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, 'LMAXMIX': 4, 'POTIM': 0.15, 'LASPH': '.TRUE.', 'LORBIT': 11, 'GGA_COMPAT': ".FALSE.", 'PREC': 'Accurate', 'LPLANE': ".TRUE.", 'LSCALU': '.FALSE.', 'ALGO': 'Normal',  "NELMIN": 8, "NELMDL": -8, 'LDAUJ': {'V': 0.0}, "LWAVE": ".FALSE.", "IWAVPR": 11 }, 'over'),
+('9_bulk', '9', {'NSW':50,'EDIFFG':-0.05, 'EDIFF':1e-5, 'ISIF':2, 'ENCUT':520, 'ENAUG': 780, 'add_nbands':1.1, 
+    'KSPACING': 0.3, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2, 'LDAUL':{'V': 2, 'Li': 0, 'P': 0, 'O': 0, 'F': 0}, 'LDAUU':{'V': 3.1}, 'ISMEAR': 0, 'SIGMA':0.1,'NELM':100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, 'LMAXMIX': 4, 'POTIM': 0.15, 'LASPH': '.TRUE.', 'LORBIT': 11, 'GGA_COMPAT': ".FALSE.", 'PREC': 'Accurate', 'LPLANE': ".TRUE.", 'LSCALU': '.FALSE.', 'ALGO': 'Normal',  "NELMIN": 8, "NELMDL": -8, 'LDAUJ': {'V': 0.0}, "LWAVE": ".FALSE.", "IWAVPR": 11, "IBRION": 1 }, 'over'),
 
 ('9_bulk_eos', '9_bulk', {"ISIF": 4, "NELM": 100, "NSW": 35 }, 'over'),
 
 
 ('9_bulk_met', '9_bulk', {'ISMEAR': 2, 'KSPACING': 0.3, 'add_nbands':3.0, "SIGMA": 0.01}, "over"),
 
-('9_bulk_rel', '9_bulk', {'NSW':150, 'POTIM': 0.15, 'EDIFF': 1e-6}, "over"),  
+('9_bulk_rel', '9_bulk', {'NSW':100, 'POTIM': 0.1, 'EDIFF': 1e-5, "NELMDL": -8, "NELMIN": 4}, "over"),  
 ('9_bulk_rel_fast', '9_bulk', {'NSW':150, 'POTIM': 0.1, 'EDIFF': 1e-5, "KSPACING": 2.0}, "over"),  
 
 ('9_bulk_md_eq', '9_bulk', {'IBRION':0, 'ISIF': 2, 'SIGMA': 0.026, 'POTIM': 2, 'PREC': 'Single', 
@@ -212,10 +216,10 @@ user_vasp_sets = [
 
 
 # ANALYSIS OF CHARGES
-('9bulk_dos', '9_bulk_rel', {'LORBIT':12, 'ISMEAR':-5, 'SIGMA':None, 'LAECHG':'.TRUE.', 'EMIN':-20, 
+('9bulk_dos', '9_bulk', {'LORBIT':12, 'ISMEAR':-5, 'SIGMA':None, 'LAECHG':'.TRUE.', 'EMIN':-20, 
     'EMAX':20, 'NEDOS':2000, 'KSPACING':0.2, 'savefile':'dox', 'LCHARG': 'TRUE', 'NSW':0, 'IBRION': -1,
     "NPAR": 2, "NFREE": 20, "POTIM": 0.04, 'PREC':'Accurate', 'ADDGRID':'.TRUE.', 'EDIFF':1e-6, 'NELM':300, 
-     "NELMIN": 8, "NELMDL": -8 }, "over"),
+     "NELMIN": 8, "NELMDL": -8, "NSW": 0, 'LCHARG': 'TRUE' }, "over"),
 
 # Occupation matrix calculations
 ('0u_prio' ,  '9neb_nfree_base_kp',  {'NSW':0, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2,

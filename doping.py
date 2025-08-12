@@ -133,31 +133,67 @@ if 0:
 
 if 1:
     pass
+    
+    # Inter
     # res('bulk.inter', '9_bulk', 1, up="up2", cluster = 'razor128')
-    # res('bulk.al.close', '9_bulk', 1, up="up2", cluster = 'razor128') 
-    # res('bulk.al.dist', '9_bulk', 1, up="up2", cluster = 'razor128') 
-    # res('bulk.deinter', '9_bulk', 1, up="up2", cluster = 'razor128')
-    
-    # res('bulk.some_na', '9_bulk', 1, up="up2", cluster = 'razor128') 
-    # res('bulk.al.some_na', '9_bulk', 1, up="up2", cluster = 'razor128') 
-    # res('bulk.al.some_na_dead', '9_bulk', 1, up="up2", cluster = 'razor128') 
-    
-    # db['bulk.deinter', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
     # db['bulk.inter', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
-    # db['bulk.al.close', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
-    # db['bulk.al.dist', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
-
-    # db['bulk.inter.ifc', '9_bulk_rel', 1].res(cluster="razor128")     
-    # db['bulk.deinter.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
-    # db['bulk.al.close.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
-    # db['bulk.al.dist.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
-     
-    db['bulk.inter.ifc', '9_bulk_rel', 1].run("9_bulk_rel_fast", "full_chg", run=2, cluster="razor128")
-     
-    # add('bulk.deinter', '9_bulk', 1, input_st = st_bulk_deinter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
-    # add('bulk.al.close', '9_bulk', 1, input_st = st_bulk_al_close, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
-    # add('bulk.al.dist', '9_bulk', 1, input_st = st_bulk_al_dist, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
-    # add('bulk.al.some_na', '9_bulk', 1, input_st = st_bulk_al_some_dead, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # db['bulk.inter.ifc', '9_bulk_rel', 1].res(cluster="razor128")         
+    # db['bulk.inter.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.inter.ifc.ifc', '9_bulk_rel', 1].res(cluster="razor128")         
+    # db['bulk.inter.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.inter.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster="razor128")         
+    #  FINISHED
+    
+    # Deinter
+    # res('bulk.deinter', '9_bulk', 1, up="up2", cluster = 'razor128')
+    # db['bulk.deinter', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
+    # db['bulk.deinter.ifc', '9_bulk_rel', 1].res(show='en', cluster="razor128") 
+    # db['bulk.deinter.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
+    # db['bulk.deinter.ifc.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # FINISHED
   
+    # Al close
+    # res('bulk.al.close', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.al.close', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.al.close.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # db['bulk.al.close.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.al.close.ifc.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # FINISHED
+
+    # Al DIST
+    # res('bulk.al.dist', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.al.dist', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.al.dist.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # db['bulk.al.dist.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.al.dist.ifc.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # FINISHED
+
+    # Some Na
+    # res('bulk.some_na', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.some_na', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, cluster="razor128")
+    # db['bulk.some_na.ifc', '9_bulk_rel', 1].res(cluster="razor128")
+    # FINISHED
+    
+    # SOME Na with Al
+    # res('bulk.al.some_na', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.al.some_na', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=2, add=1, cluster="razor128") 
+    # db['bulk.al.some_na.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # db['bulk.al.some_na.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=2, add=1, cluster="razor128") 
+    # db['bulk.al.some_na.ifc.ifc', '9_bulk_rel', 1].res(cluster="razor128") 
+    # db['bulk.al.some_na.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=2, add=1, cluster="razor128") 
+    # db['bulk.al.some_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(show="en", cluster="razor128") 
+    # FINISHED
+    
+    # Al with some dead Na  
+    # res('bulk.al.some_na_dead', '9_bulk', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.al.some_na_dead', '9_bulk', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
+    # res('bulk.al.some_na_dead.ifc', '9_bulk_rel', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.al.some_na_dead.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
+    # res('bulk.al.some_na_dead.ifc.ifc', '9_bulk_rel', 1, up="up2", cluster = 'razor128') 
+    # db['bulk.al.some_na_dead.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster="razor128") 
+    # res('bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1, up="up2", cluster = 'razor128') 
+    # FINISHED
+    
+
 
 

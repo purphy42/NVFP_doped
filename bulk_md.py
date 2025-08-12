@@ -37,3 +37,9 @@ if 0:
     # add('bulk.some_na', '9_bulk_md_eq', 1, input_st = st_bulk_soma_na, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
     # add('bulk.al.some_na_dead', '9_bulk_md_eq', 1, input_st = st_bulk_some_na_dead, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
     
+         
+    # add('bulk.deinter', '9_bulk', 1, input_st = st_bulk_deinter, it_folder = 'MD', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al.close', '9_bulk', 1, input_st = st_bulk_al_close, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al.dist', '9_bulk', 1, input_st = st_bulk_al_dist, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al.some_na', '9_bulk', 1, input_st = st_bulk_al_some_dead, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+  
