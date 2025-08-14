@@ -72,4 +72,16 @@ if 1:
     # db['bulk.al_li.2.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128')  
     # db['bulk.al_li.3.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
 
+    # db['bulk.al_li.1.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.2.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.3.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+
+    # db['bulk.al_li.1.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel_2", "full_chg", run=1, cluster = 'razor128')
+    # db['bulk.al_li.2.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel_2", "full_chg", run=1, cluster = 'razor128')  
+    # db['bulk.al_li.3.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel_2", "full_chg", run=1, cluster = 'razor128') 
+
+
+    # db['bulk.al_li.1.ifc.ifc.ifc.ifc', '9_bulk_rel_2', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.2.ifc.ifc.ifc.ifc', '9_bulk_rel_2', 1].res(cluster = 'razor128') 
+    # db['bulk.al_li.3.ifc.ifc.ifc.ifc', '9_bulk_rel_2', 1].res(cluster = 'razor128') 
 

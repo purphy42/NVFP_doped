@@ -34,33 +34,37 @@ ylim = (-2, 2)
 
 # DOS
 
-add('al_some_na_dead', '9bulk_dos', 1, input_st = st_al_some_na_dead.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
+# add('al_some_na_dead', '9bulk_dos', 1, input_st = st_al_some_na_dead.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
 
-add('al_some_na', '9bulk_dos', 1, input_st = st_al_some_na.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
+# add('al_some_na', '9bulk_dos', 1, input_st = st_al_some_na.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
 
-add('some_na', '9bulk_dos', 1, input_st = st_some_na.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
+# add('some_na', '9bulk_dos', 1, input_st = st_some_na.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
 
-add('al.dist', '9bulk_dos', 1, input_st = st_al_dist.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
+# add('al.dist', '9bulk_dos', 1, input_st = st_al_dist.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
 
-add('deinter', '9bulk_dos', 1, input_st = st_deinter.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
+# add('deinter', '9bulk_dos', 1, input_st = st_deinter.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
 
-add('inter', '9bulk_dos', 1, input_st = st_inter.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
+# add('inter', '9bulk_dos', 1, input_st = st_inter.end, it_folder = 'stability', up="up2", run = 2, cluster = 'razor128') 
 
 
 
 
 # RESULTS
 
-# res('al.dist', '9bulk_dos', 1,  cluster = 'razor128') 
-# res('al.dist', '9_bulk_mp', 1,  cluster = 'razor128') 
-
-# res('inter', '9bulk_dos', 1,  cluster = 'razor128') 
 # res('inter', '9_bulk_mp', 1,  cluster = 'razor128') 
+
+# res('deinter', '9_bulk_mp', 1,  cluster = 'razor128') 
+
+res('al.dist', '9_bulk_mp', 1,  cluster = 'razor128') 
 
 # res('some_na', '9_bulk_mp', 1,  cluster = 'razor128') 
-# res('al.dist', '9_bulk_mp', 1,  cluster = 'razor128') 
-# res('inter', '9_bulk_mp', 1,  cluster = 'razor128') 
-# res('deinter', '9_bulk_mp', 1,  cluster = 'razor128') 
+
+# res('al_some_na', '9_bulk_mp', 1,  show='op', cluster = 'razor128') 
+
+# res('al_some_na_dead', '9_bulk_mp', 1,  cluster = 'razor128') 
+
+# db['some_na', '9_bulk_mp', 1].run('9_bulk_mp', "full_chg", run=2, cluster="razor128")
+# db['some_na.ifc', '9_bulk_mp', 1].res(show='op', cluster="razor128")
 
 
 if 0:

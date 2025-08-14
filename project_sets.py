@@ -204,6 +204,8 @@ user_vasp_sets = [
 ('9_bulk_met', '9_bulk', {'ISMEAR': 2, 'KSPACING': 0.3, 'add_nbands':3.0, "SIGMA": 0.01}, "over"),
 
 ('9_bulk_rel', '9_bulk', {'NSW':100, 'POTIM': 0.1, 'EDIFF': 1e-5, "NELMDL": -8, "NELMIN": 4}, "over"),  
+('9_bulk_rel_2', '9_bulk', {'NSW':50, 'POTIM': 0.15, 'EDIFF': 1e-5, "NELMDL": -8, "NELMIN": 4}, "over"),  
+
 ('9_bulk_rel_fast', '9_bulk', {'NSW':150, 'POTIM': 0.1, 'EDIFF': 1e-5, "KSPACING": 2.0}, "over"),  
 
 ('9_bulk_md_eq', '9_bulk', {'IBRION':0, 'ISIF': 2, 'SIGMA': 0.026, 'POTIM': 2, 'PREC': 'Single', 
