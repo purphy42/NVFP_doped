@@ -55,7 +55,7 @@ ylim = (-2, 2)
 
 # res('deinter', '9_bulk_mp', 1,  cluster = 'razor128') 
 
-res('al.dist', '9_bulk_mp', 1,  cluster = 'razor128') 
+# res('al.dist', '9_bulk_mp', 1,  cluster = 'razor128') 
 
 # res('some_na', '9_bulk_mp', 1,  cluster = 'razor128') 
 
