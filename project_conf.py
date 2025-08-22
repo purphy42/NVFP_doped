@@ -64,10 +64,10 @@ CLUSTERS['arkuda'] = {
 
 CLUSTERS['magnus'] = {
 'address': 'magnus',
-'vasp_com':'mpirun vasp_gam',
+'vasp_com':'mpirun vasp_std',
 'homepath':'/home/a.burov/nvpf_al_doped/',
 'schedule':'SLURM',
-'corenum': 16,
+'corenum': 8,
 'procmemgb': 8,
 'nodes': 1,
 'partition':'AMG-medium',
@@ -185,6 +185,7 @@ ulimit -s unlimited\n\
 PATH2POTENTIALS = '/home/arseniy/Desktop/vasp/potpaw_paw/potpaw_PBE_MPIE'
 PATH2EDITOR = "subl"
 pmgkey = "dzpOVLsVP3VWa3VIOB"
+mpkey = "LTSM6dStBrl69FjopxP7KdZBP35B1yh7"
 
 path_to_paper        = '/home/anton/Research/CEStorage/aksenov_report/'
 # PATH2DATABASE        = '/home/aksenov/Data/CEStorage/_aksenov'

@@ -199,6 +199,8 @@ user_vasp_sets = [
     'KSPACING': 0.3, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2, 'LDAUL':{'V': 2, 'Li': 0, 'P': 0, 'O': 0, 'F': 0}, 'LDAUU':{'V': 3.1}, 'ISMEAR': 0, 'SIGMA':0.1,'NELM':100, 'NPAR': None, 'LREAL': 'Auto', 'ISTART': 1,  'ISPIN': 2, 'LMAXMIX': 4, 'POTIM': 0.15, 'LASPH': '.TRUE.', 'LORBIT': 11, 'GGA_COMPAT': ".FALSE.", 'PREC': 'Accurate', 'LPLANE': ".TRUE.", 'LSCALU': '.FALSE.', 'ALGO': 'Normal',  "NELMIN": 8, "NELMDL": -8, 'LDAUJ': {'V': 0.0}, "LWAVE": ".FALSE.", "IWAVPR": 11, "IBRION": 1 }, 'over'),
 
 ('9_bulk_eos', '9_bulk', {"ISIF": 4, "NELM": 100, "NSW": 35 }, 'over'),
+('9_bulk_eos_isif3', '9_bulk_eos', {"ISIF": 3, "NSW": 50 }, 'over'),
+('9_bulk_eos_isif3_ecut', '9_bulk_eos_isif3', {"ENCUT": 600, 'ENAUG': 900 }, 'over'),
 
 
 ('9_bulk_met', '9_bulk', {'ISMEAR': 2, 'KSPACING': 0.3, 'add_nbands':3.0, "SIGMA": 0.01}, "over"),
