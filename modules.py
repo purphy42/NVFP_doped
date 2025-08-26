@@ -4,7 +4,7 @@ import doping
 
 import al_li_position
 
-# import bulk_md
+import bulk_aimd
 
 import stability_and_dos
 

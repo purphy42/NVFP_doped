@@ -309,3 +309,28 @@ if 0:
 
     add('bulk.al.some_na_dead', '9_bulk_eos_isif3_ecut', 1, input_st = st_al_deint, it_folder = 'bulk', cluster = 'magnus', up='up2', run=2)    
     
+
+# Other positions 
+if 0:
+    # Sampled Li atoms to remove
+    # [1, 14, 5, 3, 2, 8, 0, 11, 13, 7, 9, 15, 12, 4]
+    # [2, 7, 9, 0, 4, 12, 15, 11, 3, 5, 6, 13, 10, 14]
+    # [14, 3, 0, 5, 9, 2, 7, 4, 1, 11, 13, 10, 8, 15]
+    # [10, 12, 14, 11, 6, 15, 3, 0, 1, 5, 9, 2, 13, 7]
+    # [9, 1, 4, 7, 6, 15, 2, 14, 5, 12, 11, 0, 10, 3]
+    
+    for idx in range(5):
+        st = db['bulk.inter.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
+        els = st.get_elements()
+        els_na = [idx for idx, el in enumerate(els) if el == "Na"]
+        els_del = random.sample(els_na, int(0.9*len(els_na)))
+        st = st.remove_atoms(els_del)
+        
+        print(els_del)
+        
+        # add(f'bulk.some_na.sample_{idx}', '9_bulk_eos', 1, input_st = st, it_folder = 'bulk', calc_method = 'uniform_scale', ngkpt=[1,1,1], n_scale_images=8, scale_region = (-5, 5), cluster = 'razor128', run=2)
+    
+if 0:
+    for idx in range(5):
+        res_loop(f'bulk.some_na.sample_{idx}.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
+        

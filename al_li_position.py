@@ -38,14 +38,23 @@ if 0:
     st_al_li_3.xcart = coords
     st_al_li_3.update_xred()
     
-    add('bulk.al_li.1', '9_bulk', 1, input_st = st_al_li, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    st_al_li_3 = st_al_li.copy()
+    coords = st_al_li_3.xcart
+    coord1 = np.array(coords[14])
+    coord2 = np.array(coords[33])
+    coords[125] = (coord1 + coord2) / 2
+    st_al_li_3.xcart = coords
+    st_al_li_3.update_xred()
     
-    add('bulk.al_li.2', '9_bulk', 1, input_st = st_al_li_2, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
     
-    add('bulk.al_li.3', '9_bulk', 1, input_st = st_al_li_3, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # add('bulk.al_li.1', '9_bulk', 1, input_st = st_al_li, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    
+    # add('bulk.al_li.2', '9_bulk', 1, input_st = st_al_li_2, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    
+    # add('bulk.al_li.3', '9_bulk', 1, input_st = st_al_li_3, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
     
     
-if 1:
+if 0:
     pass
 
     # res('bulk.al_li.1', '9_bulk', 1, cluster = 'razor128') 
@@ -92,8 +101,28 @@ if 1:
     # db['bulk.al_li.2.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
     # db['bulk.al_li.3.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
 
-    db['bulk.al_li.1.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128')
-    db['bulk.al_li.2.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster ='razor128')  
-    db['bulk.al_li.3.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
+    # db['bulk.al_li.1.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128')
+    # db['bulk.al_li.2.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster ='razor128')  
+    # db['bulk.al_li.3.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].run("9_bulk_rel", "full_chg", run=1, cluster = 'razor128') 
+
+    db['bulk.al_li.1.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    db['bulk.al_li.2.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+    db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
+
+
+if 0:
+    st_calc = db['bulk.al_li.1.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
+    add('al_li_position', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 2, cluster = 'razor128') 
+    res('al_li_position', '9_bulk_mp', 1, cluster = 'razor128') 
+
+
+# print(f"{db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].e0_at:.3f}")
+
+# db['bulk.al_li.1', '9_bulk', 1].res(show="op")
+
+# db['bulk.al_li.3', '9_bulk', 1].init.jmol()
+
+
+
 
 

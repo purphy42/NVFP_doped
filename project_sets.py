@@ -213,8 +213,9 @@ user_vasp_sets = [
 ('9_bulk_md_eq', '9_bulk', {'IBRION':0, 'ISIF': 2, 'SIGMA': 0.026, 'POTIM': 2, 'PREC': 'Single', 
     'NSW': 2000, 'TEBEG': 600, 'TEEND': 600, 'SMASS':0, 'MDALGO': 2, 'LWAVE': '.FALSE.', 
     'LCHARG': ".FALSE.", 'ALGO': 'Very Fast', 'NELMDL': None, 'NELMIN': None,
-    'ENCUT': 300, 'ENAUG': 500, "KSPACING": 1.0, "ADDGRID": ".TRUE.", "EDIFF": 1e-4,
-     "PSTRESS": 0, "IWAVPR": 12, "MAXMIX": 40, "NBLOCK": 50, 'savefile' : 'acoxt'}, "over"),
+     "KSPACING": 1.0, "ADDGRID": ".TRUE.", "EDIFF": 1e-5,
+     "PSTRESS": 0, "IWAVPR": 12, "MAXMIX": 40, "NBLOCK": 50, 'savefile' : 'acoxt',
+     "AMIN": None, "AMIX": None, "BMIX": None, "LDAU": None, 'LDAUTYPE': None, 'LDAUPRINT': None, 'LDAUL': None, 'LDAUU': None, "LDAUJ" : None}, "over"),
 
 
 
@@ -225,6 +226,14 @@ user_vasp_sets = [
     "NPAR": 2, "NFREE": 20, "POTIM": 0.04, 'PREC':'Accurate', 'ADDGRID':'.TRUE.', 'EDIFF':1e-6, 'NELM':300, 
      "NELMIN": 8, "NELMDL": -8, "NSW": 0, 'LCHARG': 'TRUE' }, "over"),
 
+
+
+('9bulk_bader', '9_bulk', {'EDIFF':1e-8, 'LAECHG': '.TRUE.', 'NELM':400, 'NSW':0, 
+    'ICHARG':1, 'savefile' : 'acox', 'LORBIT':12, 'ISMEAR':-5, 'SIGMA':None,   "NELMIN": 8, "NELMDL": -8, 
+    "KSPACING": 0.2, "IBRION": -1 }, "over"),
+
+    
+    
 # Occupation matrix calculations
 ('0u_prio' ,  '9neb_nfree_base_kp',  {'NSW':0, "LDAU": ".TRUE.", 'LDAUTYPE': 2, 'LDAUPRINT': 2,
      'LDAUL':{'V': 2, 'Li': -1, 'P': -1, 'O': -1, 'F': -1},'LDAUU':{'V': 0.0}, 'LSCALU': '.FALSE.',

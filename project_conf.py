@@ -64,10 +64,10 @@ CLUSTERS['arkuda'] = {
 
 CLUSTERS['magnus'] = {
 'address': 'magnus',
-'vasp_com':'mpirun vasp_std',
+'vasp_com':'mpirun vasp_gam',
 'homepath':'/home/a.burov/nvpf_al_doped/',
 'schedule':'SLURM',
-'corenum': 8,
+'corenum': 16,
 'procmemgb': 8,
 'nodes': 1,
 'partition':'AMG-medium',
@@ -121,7 +121,7 @@ module load q-ch/vasp/5.4.4; \
 
 CLUSTERS['razor64'] = {
 'address':'razor64',
-'vasp_com':'mpirun -np 16 vasp_std',
+'vasp_com':'mpirun -np 8 vasp_gam',
 'homepath':'/home/a.burov/nvpf_al_doped/',
 'schedule':'SLURM',
 'corenum': 16,

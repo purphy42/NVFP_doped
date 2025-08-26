@@ -89,24 +89,58 @@ st_al_some_na_dead = db['bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1]
 
 
 if 0:
-    st_al_dist = db['al_some_na_dead', '9bulk_dos', 1].copy()
-    name = "al_some_na_dead"
+    st_al_dist = db['deinter', '9bulk_dos', 1].copy()
+    name = "deinter"
     
     els = st_al_dist.init.get_elements()
     els_al = [idx for idx, el in enumerate(els) if el == "Al"]
     els_v = [idx for idx, el in enumerate(els) if el == "V"]
     
+    magmom = st_al_dist.init.magmom
+    magmom = [round(mom, 3) for mom in magmom]
+    magmom = np.array(magmom)
     
-    if len(els_al) > 0:
-        st_al_dist.dos(iatoms = els_al, x_nbins = None, ylim = ylim, xlim = (-8, 4),
-            fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_al',
-            orbitals = ["s", 'p6', 'd'], fig_format = 'png', show_dos_at_Fermi="p" )
+    print(magmom)
+        
+    if (len(els_al)) > 0:
+        print("Magmom on Al")
+        print(els_al)
+        print(magmom[els_al])
+    if (len(els_v)) > 0:
+        print("Magmom on V")
+        print(els_v)
+        print(magmom[els_v])
+    
+    
+    if 1:
+        if len(els_al) > 0:
+            st_al_dist.dos(iatoms = els_al, x_nbins = None, ylim = ylim, xlim = (-12, 4),
+                fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_al',
+                orbitals = ["s", 'p6', 'd'], fig_format = 'png', show_dos_at_Fermi="p" )
 
-    if len(els_v) > 0:
-        st_al_dist.dos(iatoms = els_v, x_nbins = None, ylim = ylim, xlim = (-8, 4),
-            fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_v',
-            orbitals = ["s", 'p6', 'd'], fig_format = 'png', show_dos_at_Fermi="p" )
+        if len(els_v) > 0:
+            st_al_dist.dos(iatoms = els_v, x_nbins = None, ylim = ylim, xlim = (-12, 4),
+                fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_v',
+                orbitals = ["s", 'p6', 'd'], fig_format = 'png', show_dos_at_Fermi="p" )
 
 
+
+
+if 0:
+    # BADER
+    add('al_some_na_dead', '9bulk_bader', 1, input_st = st_al_some_na_dead.end, it_folder = 'stability', up="up2", run = 0, cluster = 'razor128') 
+
+    add('al_some_na', '9bulk_bader', 1, input_st = st_al_some_na.end, it_folder = 'stability', up="up2", run = 0, cluster = 'razor128') 
+
+    add('some_na', '9bulk_bader', 1, input_st = st_some_na.end, it_folder = 'stability', up="up2", run = 0, cluster = 'razor128') 
+
+    add('al.dist', '9bulk_bader', 1, input_st = st_al_dist.end, it_folder = 'stability', up="up2", run = 0, cluster = 'razor128') 
+
+    add('deinter', '9bulk_bader', 1, input_st = st_deinter.end, it_folder = 'stability', up="up2", run = 0, cluster = 'razor128') 
+
+    add('inter', '9bulk_bader', 1, input_st = st_inter.end, it_folder = 'stability', up="up2", run = 0, cluster = 'razor128') 
+
+    from siman.analysis import calc_oxidation_states
+    #ox1 = calc_oxidation_states(db['llzo.ngx_160', '9g_bader_400', 1], silent = 0)
 
 
