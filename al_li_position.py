@@ -112,8 +112,9 @@ if 0:
 
 if 0:
     st_calc = db['bulk.al_li.1.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
-    add('al_li_position', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 2, cluster = 'razor128') 
-    res('al_li_position', '9_bulk_mp', 1, cluster = 'razor128') 
+    # add('al_li_position', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 2, cluster = 'razor128') 
+    # res('al_li_position', '9_bulk_mp', 1, cluster = 'razor128') 
+    db['al_li_position', '9_bulk_mp', 1].run("9_bulk_mp", "full_chg", run=2, cluster = 'razor128') 
 
 
 # print(f"{db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].e0_at:.3f}")

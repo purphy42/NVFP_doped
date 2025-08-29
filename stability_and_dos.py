@@ -13,6 +13,9 @@ from scipy import interpolate
 import copy
 import os, re
 from structures import *
+from siman.analysis import calc_oxidation_states
+
+
 
 
 fontsize = 20
@@ -142,5 +145,27 @@ if 0:
 
     from siman.analysis import calc_oxidation_states
     #ox1 = calc_oxidation_states(db['llzo.ngx_160', '9g_bader_400', 1], silent = 0)
+
+
+if 0:
+    # BADER
+    res('al_some_na_dead', '9bulk_bader', 1, cluster = 'razor128') 
+    res('al_some_na', '9bulk_bader', 1, cluster = 'razor128') 
+    res('al.dist', '9bulk_bader', 1, cluster = 'razor128') 
+    res('some_na', '9bulk_bader', 1, cluster = 'razor128') 
+    res('deinter', '9bulk_bader', 1, cluster = 'razor128') 
+    res('inter', '9bulk_bader', 1, cluster = 'razor128') 
+
+db['al_some_na_dead', '9bulk_bader', 1].get_bader_ACF()
+ox1 = calc_oxidation_states(db['al_some_na_dead', '9bulk_bader', 1], silent = 0)
+
+print(ox1)
+
+# db['al_some_na', '9bulk_bader', 1].get_bader_ACF()
+# db['al.dist', '9bulk_bader', 1].get_bader_ACF()
+# db['some_na', '9bulk_bader', 1].get_bader_ACF()
+# db['deinter', '9bulk_bader', 1].get_bader_ACF()
+# db['inter', '9bulk_bader', 1].get_bader_ACF()
+
 
 
