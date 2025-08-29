@@ -14,6 +14,7 @@ import copy
 import os, re
 from structures import *
 from siman.analysis import calc_oxidation_states
+from collections import defaultdict
 
 
 
@@ -156,16 +157,40 @@ if 0:
     res('deinter', '9bulk_bader', 1, cluster = 'razor128') 
     res('inter', '9bulk_bader', 1, cluster = 'razor128') 
 
-db['al_some_na_dead', '9bulk_bader', 1].get_bader_ACF()
-ox1 = calc_oxidation_states(db['al_some_na_dead', '9bulk_bader', 1], silent = 0)
 
-print(ox1)
 
-# db['al_some_na', '9bulk_bader', 1].get_bader_ACF()
-# db['al.dist', '9bulk_bader', 1].get_bader_ACF()
-# db['some_na', '9bulk_bader', 1].get_bader_ACF()
-# db['deinter', '9bulk_bader', 1].get_bader_ACF()
-# db['inter', '9bulk_bader', 1].get_bader_ACF()
+def calc_average_oxi_state(calc):
+
+    # Create dictionary to accumulate sums and counts
+    sum_dict = defaultdict(float)
+    count_dict = defaultdict(int)
+
+    st = calc.copy().end
+    els = st.get_elements()
+
+    calc.get_bader_ACF()
+    ox_states = calc_oxidation_states(calc, silent = 1)
+
+    for el, ox in zip(els, ox_states):
+        sum_dict[el] += ox
+        count_dict[el] += 1
+
+    # Calculate averages
+    average_oxidation_states = {el: sum_dict[el]/count_dict[el] for el in sum_dict}
+
+    print(average_oxidation_states)
+
+
+# calc_average_oxi_state(db['al_some_na_dead', '9bulk_bader', 1])
+# calc_average_oxi_state(db['al_some_na', '9bulk_bader', 1])
+# calc_average_oxi_state(db['al.dist', '9bulk_bader', 1])
+# calc_average_oxi_state(db['some_na', '9bulk_bader', 1])
+# calc_average_oxi_state(db['deinter', '9bulk_bader', 1])
+# calc_average_oxi_state(db['inter', '9bulk_bader', 1])
+
+
+
+
 
 
 
