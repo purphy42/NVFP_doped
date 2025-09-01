@@ -114,7 +114,7 @@ if 0:
     st_calc = db['bulk.al_li.1.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
     # add('al_li_position', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 2, cluster = 'razor128') 
     # res('al_li_position', '9_bulk_mp', 1, cluster = 'razor128') 
-    db['al_li_position', '9_bulk_mp', 1].run("9_bulk_mp", "full_chg", run=2, cluster = 'razor128') 
+    db['al_li_position', '9_bulk_mp', 1].run("9_bulk_mp", "full_chg", run=2, add=1, cluster = 'magnus') 
 
 
 # print(f"{db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].e0_at:.3f}")
@@ -122,6 +122,31 @@ if 0:
 # db['bulk.al_li.1', '9_bulk', 1].res(show="op")
 
 # db['bulk.al_li.3', '9_bulk', 1].init.jmol()
+
+
+if 0:
+    st_inter = db['bulk.inter.ifc.ifc.ifc', '9_bulk_rel', 1]
+    st_inter.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/inter.POSCAR")
+
+
+    st_deinter = db['bulk.deinter.ifc.ifc', '9_bulk_rel', 1]
+    st_deinter.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/deinter.POSCAR")
+
+    st_some_na = db['bulk.some_na.ifc', '9_bulk_rel', 1]
+    st_some_na.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/some_na.POSCAR")
+
+    st_al_close = db['bulk.al.close.ifc.ifc', '9_bulk_rel', 1]
+    st_inter.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/inter.POSCAR")
+
+    st_al_dist = db['bulk.al.dist.ifc.ifc', '9_bulk_rel', 1]
+    st_al_dist.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/al_dist.POSCAR")
+
+    st_al_some_na = db['bulk.al.some_na.ifc.ifc.ifc', '9_bulk_rel', 1]
+    st_al_some_na.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/al_some_na.POSCAR")
+
+    st_al_some_na_dead = db['bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1]
+    st_al_some_na_dead.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/al_some_na_dead.POSCAR")
+
 
 
 

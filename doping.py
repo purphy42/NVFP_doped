@@ -330,7 +330,29 @@ if 0:
         
         # add(f'bulk.some_na.sample_{idx}', '9_bulk_eos', 1, input_st = st, it_folder = 'bulk', calc_method = 'uniform_scale', ngkpt=[1,1,1], n_scale_images=8, scale_region = (-5, 5), cluster = 'razor128', run=2)
     
-if 1:
+if 0:
     for idx in range(5):
-        res_loop(f'bulk.some_na.sample_{idx}.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
+        # res_loop(f'bulk.some_na.sample_{idx}.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
+        # st = db[f'bulk.some_na.sample_{idx}.su', '9_bulk_eos', 100].end.rprimd
+        # for i in range(3):
+        #     print(f"{st[i][i]:.3f}", end=" ")
+        # print()
+        print( db[f'bulk.some_na.sample_{idx}.su', '9_bulk_eos', 100].e0 )
+    
+        
+if 1:
+    st = db[f'bulk.some_na.sample_{0}.su', '9_bulk_eos', 100].copy().end
+    st.rprimd = [[12.585, 0, 0], [0, 12.432, 0], [0, 0, 10.544]]
+    st.update_xred()
+    st.update_xcart()
+    # st.jmol()
+    # add('bulk.some_na.averaged', '9_bulk', 1, input_st = st, it_folder = 'bulk', up="up2", run = 2, cluster = 'razor128') 
+    # res('bulk.some_na.averaged', '9_bulk', 1, cluster = 'razor128') 
+    # db['bulk.some_na.averaged', '9_bulk', 1].run("9_bulk", "full_chg", run=2, add=1, cluster = 'magnus') 
+    db['bulk.some_na.averaged.ifc', '9_bulk', 1].res(cluster = 'magnus') 
+
+
+    
+    
+        
         
