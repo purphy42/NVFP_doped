@@ -92,9 +92,9 @@ st_al_some_na_dead = db['bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1]
 
 
 
-if 0:
-    st_al_dist = db['deinter', '9bulk_dos', 1].copy()
-    name = "deinter"
+if 1:
+    st_al_dist = db['al.dist', '9bulk_dos', 1].copy()
+    name = "al.dist_test"
     
     els = st_al_dist.init.get_elements()
     els_al = [idx for idx, el in enumerate(els) if el == "Al"]
@@ -116,16 +116,17 @@ if 0:
         print(magmom[els_v])
     
     
-    if 1:
-        if len(els_al) > 0:
-            st_al_dist.dos(iatoms = els_al, x_nbins = None, ylim = ylim, xlim = (-12, 4),
-                fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_al',
-                orbitals = ["s", 'p6', 'd'], fig_format = 'png', show_dos_at_Fermi="p" )
+        # if len(els_al) > 0:
+        #     st_al_dist.dos(iatoms = els_al, x_nbins = None, ylim = ylim, xlim = (-12, 4),
+        #         fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_al',
+        #         orbitals = ["s", 'p6', 'd'], fig_format = 'pdf', show_dos_at_Fermi="p" )
 
         if len(els_v) > 0:
-            st_al_dist.dos(iatoms = els_v, x_nbins = None, ylim = ylim, xlim = (-12, 4),
+            st_al_dist.dos(iatoms = "ad", x_nbins = None, ylim = ylim, xlim = (-12, 4),
                 fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_v',
-                orbitals = ["s", 'p6', 'd'], fig_format = 'png', show_dos_at_Fermi="p" )
+                orbitals = ["s", 'p6', 'd'], fig_format = 'pdf', show_dos_at_Fermi="p",
+                color_dict = {"s": "r", "p": "g"}
+                )
 
 
 

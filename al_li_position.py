@@ -148,7 +148,60 @@ if 0:
     st_al_some_na_dead.end.write_poscar("/home/arseniy/Desktop/work/nvpf_al_doped/data/structures/al_some_na_dead.POSCAR")
 
 
+if 0:
+    # Al substitution in Li site
+    st_int = smart_structure_read("structures/POSCAR_NaVPO4F_su_s10_1u_100_end")
+    st_al_li = st_int.copy()
+    st_al_li = st_al_li.replace_atoms([2, 11], "Al")
+    st_al_li = st_al_li.remove_atoms([4, 5, 11, 13])
+    # add('al_two_al_two_na', '9_bulk_eos', 1, input_st = st_al_li, it_folder = 'bulk', 
+    #     calc_method = 'uniform_scale', ngkpt=[1,1,1], n_scale_images=10, scale_region = (-5, 5), 
+    #     cluster = 'magnus', up='up2', run=2) 
+    
+
+    st_int = smart_structure_read("structures/POSCAR_NaVPO4F_su_s10_1u_100_end")
+    st_al_li = st_int.copy()
+    st_al_li = st_al_li.replace_atoms([2], "Al")
+    st_al_li = st_al_li.remove_atoms([4, 6,])
+    st_al_li = st_al_li.replace_atoms([25], "Al")
+    # add('al_two_al_v_and_na', '9_bulk_eos', 1, input_st = st_al_li, it_folder = 'bulk', calc_method='uniform_scale', ngkpt=[1,1,1], n_scale_images=10, scale_region = (-5, 5),
+    #     cluster = 'magnus', up='up2', run=2) 
+    
+    # Al substitution in Li site
+    st_int = smart_structure_read("structures/POSCAR_NaVPO4F_su_s10_1u_100_end")
+    st_al_li = st_int.copy()
+    st_al_li = st_al_li.replace_atoms([2], "Al")
+    st_al_li = st_al_li.remove_atoms([4, 6])
+    # add('al_one_al_na', '9_bulk_eos', 1, input_st = st_al_li, it_folder = 'bulk', calc_method='uniform_scale', ngkpt=[1,1,1], n_scale_images=10, scale_region = (-5, 5), cluster = 'magnus', up='up2', run=2) 
+    
+    
+if 0:
+    res_loop('al_two_al_two_na', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
+    res_loop('al_two_al_v_and_na', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
+    res_loop('al_one_al_na', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128', up="up2")
+    
 
 
 
 
+
+
+st_inter = db['bulk.inter.ifc.ifc.ifc', '9_bulk_rel', 1]
+
+st_deinter = db['bulk.deinter.ifc.ifc', '9_bulk_rel', 1]
+
+st_some_na = db['bulk.some_na.ifc', '9_bulk_rel', 1]
+
+st_al_close = db['bulk.al.close.ifc.ifc', '9_bulk_rel', 1]
+
+st_al_dist = db['bulk.al.dist.ifc.ifc', '9_bulk_rel', 1]
+
+st_al_some_na = db['bulk.al.some_na.ifc.ifc.ifc', '9_bulk_rel', 1]
+
+st_al_some_na_dead = db['bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1]
+
+
+st = st_al_dist.copy()
+
+print(st.end.get_formula())
+print(round(st.e0_at,3))

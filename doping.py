@@ -340,7 +340,7 @@ if 0:
         print( db[f'bulk.some_na.sample_{idx}.su', '9_bulk_eos', 100].e0 )
     
         
-if 1:
+if 0:
     st = db[f'bulk.some_na.sample_{0}.su', '9_bulk_eos', 100].copy().end
     st.rprimd = [[12.585, 0, 0], [0, 12.432, 0], [0, 0, 10.544]]
     st.update_xred()
