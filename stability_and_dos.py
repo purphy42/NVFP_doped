@@ -92,7 +92,7 @@ st_al_some_na_dead = db['bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1]
 
 
 
-if 1:
+if 0:
     st_al_dist = db['al.dist', '9bulk_dos', 1].copy()
     name = "al.dist_test"
     
@@ -188,6 +188,8 @@ def calc_average_oxi_state(calc):
 # calc_average_oxi_state(db['some_na', '9bulk_bader', 1])
 # calc_average_oxi_state(db['deinter', '9bulk_bader', 1])
 # calc_average_oxi_state(db['inter', '9bulk_bader', 1])
+
+
 
 
 

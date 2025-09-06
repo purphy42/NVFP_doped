@@ -110,18 +110,21 @@ if 0:
     db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'razor128') 
 
 
-if 0:
+if 1:
     st_calc = db['bulk.al_li.1.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
-    # add('al_li_position', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 2, cluster = 'razor128') 
-    # res('al_li_position', '9_bulk_mp', 1, cluster = 'razor128') 
-    db['al_li_position', '9_bulk_mp', 1].run("9_bulk_mp", "full_chg", run=2, add=1, cluster = 'magnus') 
+    # add('al_li_position', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 0, cluster = 'razor128') 
+    res('al_li_position', '9_bulk_mp', 1, cluster = 'razor128') 
+    # db['al_li_position', '9_bulk_mp', 1].run("9_bulk_mp", "full_chg", run=2, add=1, cluster = 'magnus') 
+
+    st_calc = db['bulk.al_li.2.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
+    # add('al_li_position2', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 0, cluster = 'razor128') 
+    res('al_li_position2', '9_bulk_mp', 1, cluster = 'razor128') 
+
+    st_calc = db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].copy().end
+    # add('al_li_position3', '9_bulk_mp', 1, input_st = st_calc, it_folder = 'dos', up="up2", run = 0, cluster = 'razor128') 
+    res('al_li_position3', '9_bulk_mp', 1, cluster = 'razor128') 
 
 
-# print(f"{db['bulk.al_li.3.ifc.ifc.ifc.ifc.ifc', '9_bulk_rel', 1].e0_at:.3f}")
-
-# db['bulk.al_li.1', '9_bulk', 1].res(show="op")
-
-# db['bulk.al_li.3', '9_bulk', 1].init.jmol()
 
 
 if 0:
@@ -175,22 +178,30 @@ if 0:
     # add('al_one_al_na', '9_bulk_eos', 1, input_st = st_al_li, it_folder = 'bulk', calc_method='uniform_scale', ngkpt=[1,1,1], n_scale_images=10, scale_region = (-5, 5), cluster = 'magnus', up='up2', run=2) 
     
     
-if 1:
+if 0:
     res_loop('al_two_al_two_na.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128',)
     res_loop('al_two_al_v_and_na.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128',)
     res_loop('al_one_al_na.su', '9_bulk_eos', list(range(1,11)) + [100], show = 'fit', analys_type = 'fit_a', cluster = 'razor128',)
     
 
 if 0:
-    st = db['al_two_al_two_na.su', '9_bulk_eos', 100].copy().end
+    st = db['al_two_al_two_na.su', '9_bulk_eos', 100].copy().init
     add('al_two_al_two_na', '9_bulk', 1, input_st = st, it_folder = 'bulk', up="up2", run = 2, cluster = 'magnus') 
     
-    st = db['al_two_al_v_and_na.su', '9_bulk_eos', 100].copy().end
+    st = db['al_two_al_v_and_na.su', '9_bulk_eos', 100].copy().init
     add('al_two_al_v_and_na', '9_bulk', 1, input_st = st, it_folder = 'bulk', up="up2", run = 2, cluster = 'magnus') 
     
-    st = db['al_one_al_na.su', '9_bulk_eos', 100].copy().end
+    st = db['al_one_al_na.su', '9_bulk_eos', 100].copy().init
     add('al_one_al_na', '9_bulk', 1, input_st = st, it_folder = 'bulk', up="up2", run = 2, cluster = 'magnus') 
     
     
 
+if 0:
+    res('al_two_al_two_na', '9_bulk', 1, cluster = 'magnus') 
+    
+    res('al_two_al_v_and_na', '9_bulk', 1, cluster = 'magnus') 
+    
+    res('al_one_al_na', '9_bulk', 1,  cluster = 'magnus') 
+    
+    
 

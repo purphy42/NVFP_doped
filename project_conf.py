@@ -64,7 +64,7 @@ CLUSTERS['arkuda'] = {
 
 CLUSTERS['magnus'] = {
 'address': 'magnus',
-'vasp_com':'mpirun vasp_gam',
+'vasp_com':'mpirun vasp_std',
 'homepath':'/home/a.burov/nvpf_al_doped/',
 'schedule':'SLURM',
 'corenum': 16,
