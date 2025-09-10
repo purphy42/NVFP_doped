@@ -351,8 +351,6 @@ if 0:
     # db['bulk.some_na.averaged', '9_bulk', 1].run("9_bulk", "full_chg", run=2, add=1, cluster = 'magnus') 
     # db['bulk.some_na.averaged.ifc', '9_bulk', 1].res(cluster = 'magnus') 
 
-if 1:
-    st = db['bulk.some_na.averaged.ifc', '9_bulk', 1].copy().end
 
     
     
