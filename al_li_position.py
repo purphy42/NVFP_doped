@@ -211,7 +211,7 @@ if 0:
     
     
 
-if 1:
+if 0:
     pass
 
     # res('al_two_al_two_na', '9_bulk', 1, cluster = 'magnus') 
@@ -219,8 +219,8 @@ if 1:
     # db['al_two_al_two_na.ifc', '9_bulk', 1].res(cluster = 'magnus') 
     # db['al_two_al_two_na.ifc', '9_bulk', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
     # db['al_two_al_two_na.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
-    db['al_two_al_two_na.ifc.ifc', '9_bulk_rel', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
-    # db['al_two_al_two_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
+    # db['al_two_al_two_na.ifc.ifc', '9_bulk_rel', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
+    db['al_two_al_two_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
     
     # res('al_two_al_v_and_na', '9_bulk', 1, cluster = 'magnus') 
     # db['al_two_al_v_and_na', '9_bulk', 1].run('9_bulk', "full_chg", run=2, cluster = 'magnus') 
@@ -228,7 +228,7 @@ if 1:
     # db['al_two_al_v_and_na.ifc', '9_bulk', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
     # db['al_two_al_v_and_na.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
     # db['al_two_al_v_and_na.ifc.ifc', '9_bulk_rel', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
-    # db['al_two_al_v_and_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
+    db['al_two_al_v_and_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
     
     # res('al_one_al_na', '9_bulk', 1,  cluster = 'magnus') 
     # db['al_one_al_na', '9_bulk', 1].run('9_bulk', "full_chg", run=2, cluster = 'magnus') 
@@ -236,7 +236,7 @@ if 1:
     # db['al_one_al_na.ifc', '9_bulk', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
     # db['al_one_al_na.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
     # db['al_one_al_na.ifc.ifc', '9_bulk_rel', 1].run('9_bulk_rel', "full_chg", run=2, cluster = 'magnus') 
-    # db['al_one_al_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
+    db['al_one_al_na.ifc.ifc.ifc', '9_bulk_rel', 1].res(cluster = 'magnus') 
     
     
 
