@@ -90,44 +90,62 @@ st_al_some_na_dead = db['bulk.al.some_na_dead.ifc.ifc.ifc', '9_bulk_rel', 1]
 # print(close*1000, dist*1000, diff*1000)
 
 
+# st_al_dist = db['al.dist', '9bulk_dos', 1].copy()
 
 
 if 0:
-    st_al_dist = db['al.dist', '9bulk_dos', 1].copy()
-    name = "al.dist_test"
+    # st_al_dist = db['inter', '9bulk_dos', 1].copy()
+    # st_al_dist = db['deinter', '9bulk_dos', 1].copy()
+    # st_al_dist = db['some_na', '9bulk_dos', 1].copy()
+
+    # st_al_dist = db['al.dist', '9bulk_dos', 1].copy()
+    # st_al_dist = db['al_some_na', '9bulk_dos', 1].copy()
+    st_al_dist = db['al_some_na_dead', '9bulk_dos', 1].copy()
+    
+    name = "al_some_na_dead"
     
     els = st_al_dist.init.get_elements()
-    els_al = [idx for idx, el in enumerate(els) if el == "Al"]
+    # els_al = [idx for idx, el in enumerate(els) if el == "Al"]
     els_v = [idx for idx, el in enumerate(els) if el == "V"]
+    els = [idx for idx, el in enumerate(els)]
     
-    magmom = st_al_dist.init.magmom
-    magmom = [round(mom, 3) for mom in magmom]
-    magmom = np.array(magmom)
+    # magmom = st_al_dist.init.magmom
+    # magmom = [round(mom, 3) for mom in magmom]
+    # magmom = np.array(magmom)
     
-    print(magmom)
+    ylim = (-1.0, 1.0)
+    
+    # print(magmom)
         
-    if (len(els_al)) > 0:
-        print("Magmom on Al")
-        print(els_al)
-        print(magmom[els_al])
-    if (len(els_v)) > 0:
-        print("Magmom on V")
-        print(els_v)
-        print(magmom[els_v])
+    # if (len(els_al)) > 0:
+    #     print("Magmom on Al")
+    #     print(els_al)
+    #     print(magmom[els_al])
+    # if (len(els_v)) > 0:
+    #     print("Magmom on V")
+    #     print(els_v)
+    #     print(magmom[els_v])
     
     
-        # if len(els_al) > 0:
-        #     st_al_dist.dos(iatoms = els_al, x_nbins = None, ylim = ylim, xlim = (-12, 4),
-        #         fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_al',
-        #         orbitals = ["s", 'p6', 'd'], fig_format = 'pdf', show_dos_at_Fermi="p" )
+    # if len(els_al) > 0:
+        # st_al_dist.dos(iatoms = els_al, x_nbins = None, ylim = ylim, xlim = (-12, 4),
+        #     fontsize = fontsize,  corner_letter  = 0, image_name = f'dos/{name}_o',
+        #     orbitals = ['p6'], fig_format = 'png', show_dos_at_Fermi="p",
+        # )
 
-        if len(els_v) > 0:
-            st_al_dist.dos(iatoms = "ad", x_nbins = None, ylim = ylim, xlim = (-12, 4),
-                fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_v',
-                orbitals = ["s", 'p6', 'd'], fig_format = 'pdf', show_dos_at_Fermi="p",
-                color_dict = {"s": "r", "p": "g"}
-                )
+    # if len(els_v) > 0:
+    #     st_al_dist.dos(iatoms = "ad", x_nbins = None, ylim = ylim, xlim = (-12, 4),
+    #         fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_v',
+    #         orbitals = ["s", 'p6', 'd'], fig_format = 'pdf', show_dos_at_Fermi="p",
+    #         color_dict = {"s": "r", "p": "g"}
+    #         )
 
+    # if len(els_v) > 0:
+    st_al_dist.dos(iatoms = els_v, x_nbins = None, ylim = ylim, xlim = (-12, 4),
+        fontsize = fontsize, corner_letter  = 0, image_name = f'dos/{name}_o',
+        orbitals = ['p6'], fig_format = 'png', show_dos_at_Fermi="p",
+        # color_dict = {"s": "r", "p": "g"}
+        )
 
 
 
