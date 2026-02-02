@@ -87,8 +87,10 @@ header.check_job = 0
 ######################################################
 
 
+
 import modules
 
+# db['bulk.al.dist.ifc.ifc', '9_bulk_rel', 1].end.write_cif("/home/arseniy/Downloads/NVAPF_DFT")
 
 	
 

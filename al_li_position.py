@@ -241,11 +241,4 @@ if 0:
     
 
 
-st = smart_structure_read("/home/arseniy/1.POSCAR")
-st = st.replic([2,1,1])
-
-# st.jmol()
-# st.printme()
-
-
 

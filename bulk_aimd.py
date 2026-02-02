@@ -37,3 +37,9 @@ if 0:
 if 0:
     st_av = db['bulk.some_na.averaged.ifc', '9_bulk', 1].copy().end
     add('bulk.some_na.averaged', '9_bulk_md_eq', 1, input_st = st_av, it_folder = 'MD', run = 2, cluster = 'magnus', ngkpt=[1,1,1], up="up2")  
+
+
+db['bulk.inter.ifc.ifc.ifc', '9_bulk_rel', 1].end.jmol()
+
+
+
